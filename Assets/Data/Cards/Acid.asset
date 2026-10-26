@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f3488525c70f443b2f6646675c5013, type: 3}
+  m_Name: Acid
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  <Description>k__BackingField: Deal 5 damage to an enemy
+  <Energy>k__BackingField: 1
+  <Image>k__BackingField: {fileID: 3736396047014605911, guid: 1d553aa4fafb19940b0ef3c93febbc3b, type: 3}
