@@ -26,6 +26,12 @@ public class HandView : MonoBehaviour
 
     public void NewHand()
     {
+        foreach (CardView cardView in cards.ToList())
+        {
+            RemoveCard(cardView.Card);
+            Destroy(cardView.gameObject);
+        }
+
         for (int i = 0; i < maxHandSize; i++)
         {
             Card card = new(cardData);
@@ -65,7 +71,10 @@ public class HandView : MonoBehaviour
         CardView cardView = GetCardView(card);
         if (cardView == null) return null;
         cards.Remove(cardView);
-        StartCoroutine(UpdateCardPos(0.15f));
+        if(cards.Count > 0)
+        {
+            StartCoroutine(UpdateCardPos(0.15f));
+        }
         return cardView;
     }
 
