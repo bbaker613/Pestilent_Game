@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     {
         if(rat.health <= 0)
         {
+            handView.DiscardAll();
             returnToMapButton.gameObject.SetActive(true);
             endTurnButton.gameObject.SetActive(false);
             winText.gameObject.SetActive(true);

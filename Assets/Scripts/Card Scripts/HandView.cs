@@ -8,7 +8,8 @@ using UnityEngine.Splines;
 
 public class HandView : MonoBehaviour
 {
-    [SerializeField] int maxHandSize = 5;
+    [SerializeField] int drawHandSize = 5;
+    [SerializeField] int maxHandSize = 10;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private SplineContainer splineContainer;
     [SerializeField] private CardData cardData;
@@ -16,7 +17,7 @@ public class HandView : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < maxHandSize; i++)
+        for (int i = 0; i < drawHandSize; i++)
         {
             Card card = new(cardData);
             CardView cardView = CardViewCreator.Instance.CreateCardView(card, transform.position, Quaternion.identity);
@@ -26,17 +27,22 @@ public class HandView : MonoBehaviour
 
     public void NewHand()
     {
-        foreach (CardView cardView in cards.ToList())
-        {
-            RemoveCard(cardView.Card);
-            Destroy(cardView.gameObject);
-        }
+        DiscardAll();
 
-        for (int i = 0; i < maxHandSize; i++)
+        for (int i = 0; i < drawHandSize; i++)
         {
             Card card = new(cardData);
             CardView cardView = CardViewCreator.Instance.CreateCardView(card, transform.position, Quaternion.identity);
             StartCoroutine(AddCard(cardView));
+        }
+    }
+
+    public void DiscardAll()
+    {
+        foreach (CardView cardView in cards.ToList())
+        {
+            RemoveCard(cardView.Card);
+            Destroy(cardView.gameObject);
         }
     }
 
